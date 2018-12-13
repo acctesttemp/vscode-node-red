@@ -33,9 +33,9 @@ export class NodeRedServer {
         // Create the settings object - see default settings.js file for other options
         const userSetteings = vscode.workspace.getConfiguration("vscode-node-red").get("settings.js");
         // Init global objects
-        for (const key in userSetteings.functionGlobalContext) {
-            userSetteings.functionGlobalContext[key] = eval(userSetteings.functionGlobalContext[key]);
-        }
+        for (const key in userSetteings['functionGlobalContext']) {
+            userSetteings['functionGlobalContext'][key] = eval(userSetteings['functionGlobalContext'][key]);
+        };
         let settings = {
             httpAdminRoot: "/red",
             httpNodeRoot: "/api",
